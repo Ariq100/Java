@@ -53,20 +53,22 @@ public class Registration {
         System.out.println(this.email);
     }
 
-    public void passwordLengthChecker(String password)
+    public boolean passwordLengthChecker(String password)
     {
         int size = password.length();
 
         if (size > 8 && size < 16)
         {
-            System.out.println("Password is within the rules");
-//            System.out.print(true);
+//            System.out.println("Password is within the rules");
+            System.out.print(true);
         }
         else
         {
-            System.out.println("Password length must be more than 8 characters and less than 16 characters ");
-//            System.out.print(false);
+//            System.out.println("Password length must be more than 8 characters and less than 16 characters ");
+            System.out.print(false);
         }
+
+        return false;
     }
 
     public void objectChecker()
@@ -79,18 +81,20 @@ public class Registration {
         }
     }
 
-    public void emailVerifier(String email)
+    public boolean emailVerifier(String email)
     {
         if (email.contains("@"))
         {
-            System.out.println("\nYou email is valid");
-//            System.out.print(true);
+//            System.out.println("\nYou email is valid");
+            System.out.print(true);
         }
 
         else
         {
-            System.out.println("\nThe Email is not valid!!!\nEnter a valid email.");
-//            System.out.print(false);
+//            System.out.println("\nThe Email is not valid!!!\nEnter a valid email.");
+            System.out.print(false);
         }
+
+        return true;
     }
 }
