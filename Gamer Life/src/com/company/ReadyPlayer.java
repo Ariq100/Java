@@ -58,14 +58,15 @@ public class ReadyPlayer {
         return "@"+username;
     }
 
+    public void setUsername(String username) {this.username = username;}
+
     public void showInfo()
     {
-        System.out.println(this.fullname);
-        System.out.println(this.username);
-        System.out.println(this.playerTier);
-        System.out.println(this.readyCoins);
-        System.out.println(this.eliteCoins);
-        System.out.println(this.gamePoints);
+        System.out.println("Fullname: " + this.fullname);
+        System.out.println("Username: " + this.username);
+        System.out.println("Player Tier: " + this.playerTier + " " +this.gamePoints);
+        System.out.println("Ready Coins: " + this.readyCoins);
+        System.out.println("Elite Coins: " + this.eliteCoins);
     }
 
     public int buyEliteCoins(int eliteCoins)
@@ -87,6 +88,34 @@ public class ReadyPlayer {
         this.gamePoints = 0;
         this.readyCoins = 0;
         this.eliteCoins = 0;
-        this.playerTier = "Bronze";
+        this.playerTier = playerTierTracker();
     }
+
+    public String playerTierTracker()
+    {
+        if (this.gamePoints <= 999)
+        {
+            setPlayerTier("Bronze");
+        }
+        else if (this.gamePoints > 1000 && this.gamePoints <= 1999)
+        {
+            setPlayerTier("Silver");
+        }
+        else if (this.gamePoints > 2000 && this.gamePoints <= 2999)
+        {
+            setPlayerTier("Gold");
+
+        }
+        else if (this.gamePoints > 3000 && this.gamePoints <= 3999)
+        {
+            setPlayerTier("Diamond");
+        }
+        else if (this.gamePoints >= 4000)
+        {
+            setPlayerTier("Platinum");
+        }
+
+        return " ";
+    }
+
 }
