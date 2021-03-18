@@ -108,7 +108,6 @@ public class ReadyPlayer {
         else if (this.gamePoints >= 2000 && this.gamePoints <= 2999)
         {
             return "Gold";
-
         }
         else if (this.gamePoints >= 3000 && this.gamePoints <= 3999)
         {

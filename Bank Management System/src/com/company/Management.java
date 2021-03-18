@@ -2,7 +2,7 @@ package com.company;
 import java.util.*;
 
 public class Management {
-    private static String id;
+    private String id;
     private String name;
     private String type;
     private float balance;
@@ -10,7 +10,7 @@ public class Management {
     public Management(String id, String name, String type, float balance) {
         if (type == "Savings Account" || type == "Student Account" || type == "Family Account")
         {
-            this.id = id;
+            this.id = idCreator();
             this.name = name;
             this.type = type;
             this.balance = balance;
@@ -20,6 +20,14 @@ public class Management {
         {
             System.out.println("There was a problem creating the account.\nPlease check your inputs again.");
         }
+    }
+
+    public  String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -51,18 +59,23 @@ public class Management {
         System.out.println("Name: " + this.name);
         System.out.println("Account Type: " + this.type);
         System.out.println("Balance: " + this.balance);
+        System.out.println(this.id);
     }
 
-    public void idCreator()
+    public String idCreator()
     {
-        
+//        String comName = "BracBank_";
+
+        String number = this.id + 1;
+
+        setId("BracBank_" + number);
+
+        return 0;
     }
 
     public float withdrawAmount(float amount)
     {
-        float b = this.balance - amount;
-
-        if(b > 500)
+        if(this.balance - amount >= 500)
         {
             setBalance(this.balance - amount);
         }
@@ -77,7 +90,7 @@ public class Management {
 
     public float depositAmount(float amount)
     {
-        if(amount > 100 && amount < 100000)
+        if(amount >= 100 && amount <= 100000)
         {
             setBalance(this.balance + amount);
         }
@@ -89,6 +102,4 @@ public class Management {
 
         return 0;
     }
-
-
 }

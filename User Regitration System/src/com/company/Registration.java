@@ -83,18 +83,18 @@ public class Registration {
 
     public boolean emailVerifier(String email)
     {
-        if (email.contains("@"))
-        {
-//            System.out.println("\nYou email is valid");
-            System.out.print(true);
-        }
+        return (email.contains("@"))? true : false;
 
-        else
-        {
-//            System.out.println("\nThe Email is not valid!!!\nEnter a valid email.");
-            System.out.print(false);
-        }
-
-        return true;
+//        if (email.contains("@"))
+//        {
+////            System.out.println("\nYou email is valid");
+//            System.out.print(true);
+//        }
+//
+//        else
+//        {
+////            System.out.println("\nThe Email is not valid!!!\nEnter a valid email.");
+//            System.out.print(false);
+//        }
     }
 }
