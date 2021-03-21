@@ -49,14 +49,6 @@ public class File {
         this.fileType = fileType;
     }
 
-    public static String getId() {
-        return id;
-    }
-
-    public static void setId(String id) {
-        File.id = id;
-    }
-
     public boolean FileTypeChecker(String fileType)
     {
         try
@@ -78,7 +70,7 @@ public class File {
 
     public String idCreator(String fileType)
     {
-        String id = getId();
+        String id = this.id;
 
         if (fileType == "png")
         {
