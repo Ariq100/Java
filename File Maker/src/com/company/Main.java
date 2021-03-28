@@ -16,6 +16,9 @@ public class Main {
         {
             System.out.print("File Name: ");
             String fileName = input.nextLine();
+            
+            System.out.println("\n");
+
             System.out.print("File Type: ");
             String fileType = input.nextLine();
 
