@@ -221,11 +221,15 @@ public class pcBuilder {
         }
         else if(gpu == 2)
         {
-            return "HyperX Fury 16GB (2x8) 3200MHz DDR4 CL16 DIMM 1Rx8  RGB XMP Desktop Memory dual Stick: $71.00";
+            return "GIGABYTE AORUS GeForce RTX 3060 Ti MASTER 8GB Video Card, GV-N306TAORUS M-8GD: $639.99";
         }
         else if(gpu == 3)
         {
-            return "HyperX Fury 8GB 3200MHz DDR4 CL16 DIMM (Kit of 2)  Black XMP Desktop Memory: $86.99";
+            return "GIGABYTE GeForce RTX 3070 GAMING OC 8GB Video Card, GV-N3070GAMING OC-8GD: $2,799.99";
+        }
+        else if(gpu == 3)
+        {
+            return "EVGA GeForce RTX 3080 FTW3 ULTRA GAMING Video Card, 10G-P5-3897-KR, 10GB GDDR6X, iCX3 Technology, ARGB LED, Metal Backplate: $899.99";
         }
 
         return "false";
@@ -277,4 +281,15 @@ public class pcBuilder {
         System.out.println("Storage: " + getStorage());
         System.out.println("\n\n");
     }
+
+    // public void calculate()
+    // {
+    //     Pattern p = Pattern.compile("\\d+");
+    //     Matcher m = p.matcher("string1234more567string890");
+    //     while(m.find()) 
+    //     {
+    //         System.out.println(m.group());
+    //     }
+    //     // Pattern pattern = Pattern.compile("[^0-9]");
+    // }
 }

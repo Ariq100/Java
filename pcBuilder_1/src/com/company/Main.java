@@ -102,6 +102,7 @@ public class Main {
         for (int i = 0; i < build.length; i++)
         {
             build[i].showInfo();
+            build[i].calculate();
         }
     }
 
@@ -112,7 +113,8 @@ public class Main {
                 "2. AMD Ryzen 3 3300G: $99\n" +
                 "3. AMD Ryzen 3 3100 AM4: $99.00\n"+
                 "4. AMD RYZEN 5 3500X 6-Core 3.6 GHz (4.1 GHz Turbo) Socket AM4 65W 100-100000158CBX Desktop Processor: $184.18\n"+
-                "5. AMD RYZEN 5 3600 6-Core 3.6 GHz (4.2 GHz Max Boost) Socket AM4 65W 100-100000031BOX Desktop Processor: $224.99\n");
+                "5. AMD RYZEN 5 3600 6-Core 3.6 GHz (4.2 GHz Max Boost) Socket AM4 65W 100-100000031BOX Desktop Processor: $224.99\n"+
+                "6. Intel Core i5 9700k\n");
     }
 
     public static void AM4()
