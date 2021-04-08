@@ -1,234 +1,236 @@
 package com.company;
-// main e 
+import java.util.Scanner;
+
 public class pcBuilder {
-    private static int id;
-    private String cpu;
-    private String motherBoard;
-    private String ram;
-    private int ramCount;
-    private String storage;
-    private int storageCount;
-    private String gpu;
-    private String casing;
-    private String psu;
-    private String monitor;
-    private String keyboard;
-    private String mouse;
+    private String optRam;
+    private String optMotherBoard;
+    private String optStorage;
+    private String optGpu;
+    // private String optCasing;
+    // private String optPsu;
+    // private String optMonitor;
+    private String optCpu;
+    private String[] cpu ;
 
-    public pcBuilder(int cpu, int motherBoard, int ramCount, int ram, int storage, int gpu, String casing, String psu, String monitor, String keyboard, String mouse) {
-        setCpu(cpuChoise(cpu));
-        setMotherBoard(motherBoardChoise(motherBoard));
-        if (ramCount == 8)
-        {
-            setRam(ramChoise8(ram));
-        }
-        else
-        {
-            setRam(ramChoise16(ram));
-        }
-        // setRamCount(ramCount);
+    private String[] ram;
+    private String[] storage;
+    private String[] gpu;
+    // private String[] casing;
+    // private String[] psu;
+    // private String[] monitor;
+
+    public pcBuilder(String optRam, String optMotherBoard, String optStorage, String optGpu, String[] cpu, String[] ram, String[] storage, String[] gpu) {
+        setOptRam(optRam);
+        setOptMotherBoard(optMotherBoard);
+        setOptStorage(optStorage);
+        setGpu(gpu);
+        setCpu(cpu);
         setStorage(storage);
-        // setStorageCount(storageCount);
-        setGpu(gpuchoise(gpu));
-        setCasing(casing);
-        setPsu(psu);
-        setMonitor(monitor);
-        // setKeyboard(keyboard);
-        // setMouse(mouse);
+        setGpu(gpu);
     }
 
-    public static int getId() {
-        return id;
+    public String getOptRam() {
+        return optRam;
     }
 
-    public static void setId(int id) {
-        pcBuilder.id = id;
+    public void setOptRam(String optRam) {
+        this.optRam = optRam;
     }
 
-    public String getCpu() {
+    public String getOptMotherBoard() {
+        return optMotherBoard;
+    }
+
+    public void setOptMotherBoard(String optMotherBoard) {
+        this.optMotherBoard = optMotherBoard;
+    }
+
+    public String getOptStorage() {
+        return optStorage;
+    }
+
+    public void setOptStorage(String optStorage) {
+        this.optStorage = optStorage;
+    }
+
+    public String getOptGpu() {
+        return optGpu;
+    }
+
+    public void setOptGpu(String optGpu) {
+        this.optGpu = optGpu;
+    }
+
+    public String getOptCasing() {
+        return optCasing;
+    }
+
+    public void setOptCasing(String optCasing) {
+        this.optCasing = optCasing;
+    }
+
+    public String getOptPsu() {
+        return optPsu;
+    }
+
+    public void setOptPsu(String optPsu) {
+        this.optPsu = optPsu;
+    }
+
+    public String getOptMonitor() {
+        return optMonitor;
+    }
+
+    public void setOptMonitor(String optMonitor) {
+        this.optMonitor = optMonitor;
+    }
+
+    public String getOptCpu() {
+        return optCpu;
+    }
+
+    public void setOptCpu(String optCpu) {
+        this.optCpu = optCpu;
+    }
+
+    public String[] getCpu() {
         return cpu;
     }
 
-    public void setCpu(String cpu) {
+    public void setCpu(String[] cpu) {
         this.cpu = cpu;
     }
 
-    public String getMotherBoard() {
-        return motherBoard;
-    }
-
-    public void setMotherBoard(String motherBoard) {
-        this.motherBoard = motherBoard;
-    }
-
-    public String getRam() {
+    public String[] getRam() {
         return ram;
     }
 
-    public void setRam(String ram) {
+    public void setRam(String[] ram) {
         this.ram = ram;
     }
 
-    public int getRamCount() {
-        return ramCount;
-    }
-
-    public void setRamCount(int ramCount) {
-        this.ramCount = ramCount;
-    }
-
-    public String getStorage() {
+    public String[] getStorage() {
         return storage;
     }
 
-    public void setStorage(String storage) {
+    public void setStorage(String[] storage) {
         this.storage = storage;
     }
 
-    public int getStorageCount() {
-        return storageCount;
-    }
-
-    public void setStorageCount(int storageCount) {
-        this.storageCount = storageCount;
-    }
-
-    public String getGpu() {
+    public String[] getGpu() {
         return gpu;
     }
 
-    public void setGpu(String gpu) {
+    public void setGpu(String[] gpu) {
         this.gpu = gpu;
     }
 
-    public String getCasing() {
+    public String[] getCasing() {
         return casing;
     }
 
-    public void setCasing(String casing) {
+    public void setCasing(String[] casing) {
         this.casing = casing;
     }
 
-    public String getPsu() {
+    public String[] getPsu() {
         return psu;
     }
 
-    public void setPsu(String psu) {
+    public void setPsu(String[] psu) {
         this.psu = psu;
     }
 
-    public String getMonitor() {
+    public String[] getMonitor() {
         return monitor;
     }
 
-    public void setMonitor(String monitor) {
+    public void setMonitor(String[] monitor) {
         this.monitor = monitor;
     }
 
-    public String getKeyboard() {
-        return keyboard;
+    public void motherBoardPicker(){
+        String[] x570 = {"GIGABYTE X570 AORUS MASTER", "AM4", "369.99"};
+        String[] asusPrimeX399A = {"Asus Prime X399-A AMD", "TR4", "345.69"};
+
+        if (optCpu == "1") {
+            String[] motherBoard = x570;
+        }
+        else if(optCpu == "2") {
+            String[] motherBoard = asusPrimeX399A;
+        }
+
+        else{
+            System.out.println("Wrong input");
+        }
     }
 
-    public void setKeyboard(String keyboard) {
-        this.keyboard = keyboard;
+    public void cpuPicker(){
+        String[] ryzen_5_3600x = {"ryzen 5 3600x", "AM4", "350"};
+        String[] ryzen_3_3400g = {"ryzen 3 3400g", "AM4", "145"};
+
+        if (optCpu == "1") {
+            String[] cpu = ryzen_5_3600x;
+        }
+        else if(optCpu == "2") {
+            String[] cpu = ryzen_3_3400g;
+        }
+        else{
+            System.out.println("Wrong input");
+        }
     }
 
-    public String getMouse() {
-        return mouse;
+    public void ramPicker(){
+        String[] Corsair_Vengeance_16gb = {" Corsair_Vengeance_16gb" ,"16","3200mhz","DDR4","102.99"};
+        String[] HyperxFury_16gb = {" HyperxFury_16gb","16","3200mhz","DDR4","71.00"};
+
+        if (optCpu == "1") {
+            String[] ram = Corsair_Vengeance_16gb ;
+        }
+        else if(optCpu == "2") {
+            String[] ram = HyperxFury_16gb;
+        }
+        else{
+            System.out.println("Wrong input");
+        }
     }
 
-    public void setMouse(String mouse) {
-        this.mouse = mouse;
+    public void gpuPicker(){
+        String[] GTX1660Ti = {"MSI Gaming GeForce GTX 1660","6"," 800"};
+        String[] RTX3060 = {"ZOTAC Gaming GeForce RTX 3060 Twin Edge", "12", "1800"};
+
+        if (optCpu == "1") {
+            String[] gpu =  GTX1660Ti;
+        }
+        else if(optCpu == "2") {
+            String[] gpu = RTX3060;
+        }
+        else{
+            System.out.println("Wrong input");
+        }
     }
 
-    private String cpuChoise(int cpu)
-    {
-        if (cpu == 1)
-        {
-            return "AMD Ryzen 3 3300X: $120";
+    public void storagePicker(){
+        String[] Blue_1TB_Desktop_Hard_Disk_Drive = {"1","41.99"};
+        String[] Black_2TB_Performance_Desktop_Hard_Disk_Drive = {"2","69.99"};
+
+        if (optCpu == "1") {
+            String[] storage = Blue_1TB_Desktop_Hard_Disk_Drive;
         }
-        else if(cpu == 2)
-        {
-            return "AMD Ryzen 3 3300G: $99";
-        }
-        else if(cpu == 3)
-        {
-            return "AMD Ryzen 3 3100: $99";
+        else if(optCpu == "2") {
+            String[] storage = Black_2TB_Performance_Desktop_Hard_Disk_Drive;
         }
 
-        return "false";
+        else{
+            System.out.println("Wrong input");
+        }
     }
 
-    private String motherBoardChoise(int motherBoard)
-    {
-        if (motherBoard == 1)
+    public void showInfo() {
+        for(int i=0;i<cpu.length;i++)
         {
-            return "ASUS ROG Strix B550-F Gaming (WiFi 6) AMD AM4 (3rd Gen Ryzen) ATX Gaming Motherboard: $209.99";
-        }
-        else if(motherBoard == 2)
-        {
-            return "MSI B450 GAMING PLUS MAX AM4 AMD B450 SATA 6Gb/s ATX AMD Motherboard: $109.99";
-        }
-        else if(motherBoard == 3)
-        {
-            return "GIGABYTE X570 AORUS MASTER AMD Ryzen 3000 PCIe 4.0 SATA 6Gb/s USB 3.2 AMD X570 ATX Motherboard: $369.99";
-        }
+            System.out.print(cpu[i]);
 
-        return "false";
+        }
     }
-
-    private String ramChoise16(int ram)
-    {
-        if (ram == 1)
-        {
-            return "1. Corsair Vengeance LPX 16GB (2x8GB) DDR4 DRAM 3200MHz C16 Desktop Memory Kit -Black: $102.99";
-        }
-        else if(ram == 2)
-        {
-            return "HyperX Fury 16GB (2x8) 3200MHz DDR4 CL16 DIMM 1Rx8  RGB XMP Desktop Memory dual Stick: $71.00";
-        }
-        else if(ram == 3)
-        {
-            return "HyperX Fury 8GB 3200MHz DDR4 CL16 DIMM (Kit of 2)  Black XMP Desktop Memory: $86.99";
-        }
-
-        return "false";
-    }
-
-    private String ramChoise8 (int ram)
-    {
-        if (ram == 1)
-        {
-            return "Corsair Vengeance LPX 8GB 3200MHz DDR4 Desktop RAM single stick: $50.00";
-        }
-        return "false";
-    }
-
-    private String gpuchoise(int gpu)
-    {
-        if (gpu == 1)
-        {
-            return "GIGABYTE GeForce GTX 1660 OC 6G Graphics Card, 2 x WINDFORCE Fans, 6GB 192-Bit GDDR5, GV-N1660OC-6GD Video Card: $688.90";
-        }
-        else if(gpu == 2)
-        {
-            return "HyperX Fury 16GB (2x8) 3200MHz DDR4 CL16 DIMM 1Rx8  RGB XMP Desktop Memory dual Stick: $71.00";
-        }
-        else if(gpu == 3)
-        {
-            return "HyperX Fury 8GB 3200MHz DDR4 CL16 DIMM (Kit of 2)  Black XMP Desktop Memory: $86.99";
-        }
-
-        return "false";
-    }
-
-//    private boolean cpucompatibility(String cpu, String motherBoard)
-//    {
-//        if (cpu == cpu.contains("Ryzen 3") || cpu == cpu.contains("Ryzen 5") || cpu == cpu.contains("Ryzen 7")
-//            return true;
-//        }
-//        else if ()
-//    }
-//
-//    private boolean
 }
