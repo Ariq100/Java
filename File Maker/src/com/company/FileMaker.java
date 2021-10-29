@@ -1,76 +1,89 @@
 package com.company;
+
 import java.time.LocalDateTime;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class FileMaker {
-    private static int id;
-    private String fileName;
-    private String fileType;
-    private LocalDateTime fileCreated;
-    private String fileId;
+    private String mId;
+    private String mName;
+    private String mContent;
+    private LocalDateTime mCreated;
+    private static int mCount;
 
-    public FileMaker(String fileName, String fileType) {
-        if (fileTypeChecker(fileType))
-        {
-            this.id += ++this.id;
-            setFileName(fileName);
-            setFileType(fileType);
-            setFileCreated(LocalDateTime.now());
-            setFileId(idCreator(fileType));
-        }
-        else
-        {
-            System.out.println("Please Enter the file type correctly.");
+    public FileMaker(String mName, String mType, String mContent) {
+        System.out.println("Maker: " + mType);
+        if (TypeChecker(mType)) {
+            this.SetMId(IdCreator(mType));
+            this.SetMName(mName, mType);
+            this.SetMContent(mContent);
+            this.SetMCreated();
+            this.MakeFile();
+        } else {
+            System.out.println("File type not supported.");
         }
     }
 
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
+    public String GetMId() {
+        return mId;
     }
 
-    public String getFileName() {
-        return fileName;
+    public void SetMId(String mId) {
+        this.mId = mId;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public String GetMName() {
+        return mName;
     }
 
-    public String getFileType() {
-        return fileType;
+    public void SetMName(String mName, String mType) {
+        this.mName = mName + "." +mType;
     }
 
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
+    public String GetMContent() {
+        return mContent;
     }
 
-    public LocalDateTime getFileCreated() {
-        return fileCreated;
+    public void SetMContent(String mContent) {
+        this.mContent = mContent;
     }
 
-    public void setFileCreated(LocalDateTime fileCreated) {
-        this.fileCreated = fileCreated;
+    public LocalDateTime GetMCreated() {
+        return mCreated;
     }
 
-    private String idCreator(String filetype)
-    {
-        return fileType + "_" + this.id;
+    public void SetMCreated() {
+        this.mCreated = LocalDateTime.now();
     }
 
-    private Boolean fileTypeChecker(String fileType)
-    {
-        if(fileType == "txt" || fileType == "doc" || fileType == "py")
-        {
+    private static String IdCreator(String mType) {
+        return (mType + ++mCount);
+    }
+
+    private boolean TypeChecker(String mType) {
+        System.out.println("Type checker: " + mType);
+        if (mType == "doc") {
+            System.out.println("doc");
+        }
+        if (mType.equals("txt") || mType.equals("doc") || mType.equals("py")) {
             return true;
         }
-
         return false;
     }
 
-    public void showInfo()
-    {
-        System.out.println("______________File Created______________");
-        System.out.println(getFileName());
-        System.out.println(getFileType());
-        System.out.println(getFileCreated() + "\n");
+    private void MakeFile() {
+        try {
+            FileWriter fileWriter = new FileWriter(this.GetMName());
+            fileWriter.write(this.GetMContent());
+            fileWriter.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+        }
+    }
+
+    public void ShowInfo() {
+        System.out.println("Filename: " + this.GetMName());
+        System.out.println("Content: " + this.GetMContent());
+        System.out.println("File Created on: " + this.GetMCreated());
     }
 }

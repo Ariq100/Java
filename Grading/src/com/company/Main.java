@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Enter gpa: ");
+        System.out.print("Enter gpa: ");
+
         Scanner input = new Scanner(System.in);
 
         boolean breakPoint = true;
@@ -20,7 +21,8 @@ public class Main {
                 else if (gpa >= 0 && gpa < 50){
                     System.out.println("Fail!");
                 }
-                else {
+                else
+                {
                     throw new Exception();
                 }
 

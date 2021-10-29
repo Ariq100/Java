@@ -102,7 +102,7 @@ public class Main {
         for (int i = 0; i < build.length; i++)
         {
             build[i].showInfo();
-            build[i].calculate();
+            // build[i].calculate();
         }
     }
 

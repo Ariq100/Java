@@ -263,8 +263,7 @@ public class pcBuilder {
         {
             return "SAMSUNG 980 PRO M.2 2280 1TB PCI-Express Gen 4.0 x4, NVMe 1.3 Samsung V-NAND Internal Solid State Drive(SSD): $199.99";
         }
-        else if(storage == 2)
-        {
+        else if(storage == 2) {
             return "Sabrent 2TB Rocket Nvme PCIe 4.0 M.2 2280 Internal SSD Maximum Performance Solid State Drive: $299.99";
         }
 

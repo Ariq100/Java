@@ -1,35 +1,30 @@
 package com.company;
 import java.util.Scanner;
 
-public class Main {
+public class Main
+{
+    public static void main(String[] args) {
+        FileMaker[] maker = new FileMaker[1];
 
-    public static void main(String[] args)
-    {
-        Scanner input = new Scanner(System.in);
+        for (int i = 0; i < maker.length; i++) {
+            Scanner scanner = new Scanner(System.in);
 
-        System.out.print("How many inputs do you want to make: ");
-        int t = input.nextInt();
+            System.out.print("File name: ");
+            String fName = scanner.nextLine();
 
-        FileMaker[] file = new FileMaker[t];
+            System.out.print("File extension: ");
+            String fExt = scanner.nextLine();
 
-        for (int i = 0; i < file.length; i++)
-        {
-            System.out.print("File Name: ");
-            String fileName = input.nextLine();
-            
-            System.out.println("\n");
+            System.out.println(fExt);
 
-            System.out.print("File Type: ");
-            String fileType = input.nextLine();
+            System.out.print("File Contents: ");
+            String fContent = scanner.nextLine();
 
-            file[i] = new FileMaker(fileName, fileType);
-
-            System.out.println("\n");
+            maker[i] = new FileMaker(fName, fExt, fContent);
         }
 
-        for (int i = 0; i < file.length; i++)
-        {
-            file[i].showInfo();
+        for (int i = 0; i < maker.length; i++) {
+            maker[i].ShowInfo();
         }
     }
 }

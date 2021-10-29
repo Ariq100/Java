@@ -17,7 +17,7 @@ public class Main {
 
             bike[i] = new Bike(manufacturer, model);
 
-            System.out.println("\n\n");
+            System.out.println("\n");
         }
 
         for (int i = 0; i < bike.length; i++)
